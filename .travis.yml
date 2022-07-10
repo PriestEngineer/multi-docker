@@ -10,14 +10,14 @@ script:
   - docker run -e CI=true ajdin/react-test npm test
 
 after_success:
-  - docker build -t ajdin/multi-client ./client
-  - docker build -t ajdin/multi-nginx ./nginx
-  - docker build -t ajdin/multi-server ./server
-  - docker build -t ajdin/multi-worker ./worker
+  - docker build -t fndja/multi-client ./client
+  - docker build -t fndja/multi-nginx ./nginx
+  - docker build -t fndja/multi-server ./server
+  - docker build -t fndja/multi-worker ./worker
   # Log into docker CLI, u travisu dodamo varijable
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #take these images and push them to docker hub
-  - docker push ajdin/multi-client
-  - docker push ajdin/multi-nginx
-  - docker push ajdin/multi-server
-  - docker push ajdin/multi-worker
+  - docker push fndja/multi-client
+  - docker push fndja/multi-nginx
+  - docker push fndja/multi-server
+  - docker push fndja/multi-worker
